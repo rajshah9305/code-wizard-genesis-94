@@ -1,19 +1,19 @@
+
 import { useState, useEffect } from "react";
 import { HeroSection } from "@/components/hero/HeroSection";
-import { AIStudio } from "@/components/ai-studio/AIStudio";
-import { CodePreview } from "@/components/code-preview/CodePreview";
+import { ProblemSolutionSection } from "@/components/sections/ProblemSolutionSection";
+import { KeyFeaturesSection } from "@/components/sections/KeyFeaturesSection";
+import { InteractivePlayground } from "@/components/playground/InteractivePlayground";
+import { UseCasesSection } from "@/components/sections/UseCasesSection";
+import { ShowcaseGallery } from "@/components/showcase/ShowcaseGallery";
+import { TestimonialsSection } from "@/components/testimonials/TestimonialsSection";
+import { StudioSection } from "@/components/sections/StudioSection";
+import { PricingSection } from "@/components/pricing/PricingSection";
+import { FAQSection } from "@/components/faq/FAQSection";
+import { SecondaryCtaSection } from "@/components/sections/SecondaryCtaSection";
+import { FooterSection } from "@/components/sections/FooterSection";
 import { Navigation } from "@/components/layout/Navigation";
 import { CommandPalette } from "@/components/ui/command-palette";
-import { TestimonialsSection } from "@/components/testimonials/TestimonialsSection";
-import { PricingSection } from "@/components/pricing/PricingSection";
-import { ShowcaseGallery } from "@/components/showcase/ShowcaseGallery";
-import { InteractivePlayground } from "@/components/playground/InteractivePlayground";
-import { NewsletterSection } from "@/components/engagement/NewsletterSection";
-import { FAQSection } from "@/components/faq/FAQSection";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Zap, Code, Sparkles, ArrowRight, Play, Github, Twitter } from "lucide-react";
 
 const Index = () => {
   const [isCommandOpen, setIsCommandOpen] = useState(false);
@@ -30,130 +30,52 @@ const Index = () => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const features = [
-    {
-      icon: <Zap className="w-6 h-6" />,
-      title: "AI-Powered Generation",
-      description: "Transform natural language into production-ready React applications in seconds."
-    },
-    {
-      icon: <Code className="w-6 h-6" />,
-      title: "Clean, Modern Code",
-      description: "Generated applications use best practices, TypeScript, and modern frameworks."
-    },
-    {
-      icon: <Sparkles className="w-6 h-6" />,
-      title: "Premium Design System",
-      description: "Every app includes a sophisticated design system with perfect accessibility."
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-orange-50/30 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-green-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
+      </div>
+
       <Navigation onCommandToggle={() => setIsCommandOpen(true)} />
       
-      {/* Hero Section */}
+      {/* 1. Hero Section & Primary CTA */}
       <HeroSection />
 
-      {/* Interactive Playground */}
+      {/* 2. Problem/Solution Overview */}
+      <ProblemSolutionSection />
+
+      {/* 3. Key Features */}
+      <KeyFeaturesSection />
+
+      {/* 4. How It Works / Interactive Demo */}
       <InteractivePlayground />
 
-      {/* App Showcase Gallery */}
+      {/* 5. Examples / Use Cases */}
+      <UseCasesSection />
+
+      {/* 6. App Gallery / Integrations */}
       <ShowcaseGallery />
 
-      {/* Features Grid */}
-      <section className="py-24 px-6 bg-slate-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-4">
-              The Future of Development
-            </Badge>
-            <h2 className="text-4xl font-bold tracking-tight mb-6">
-              Build faster than ever imagined
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Experience the next generation of application development with AI that understands your vision.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-8">
-                  <div className="text-orange-500 mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* AI Studio Demo */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight mb-6">
-              Watch AI build your app
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              From concept to code in real-time. See the magic happen.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <AIStudio />
-            <CodePreview />
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
+      {/* 7. Success Stories / Testimonials */}
       <TestimonialsSection />
 
-      {/* Pricing */}
+      {/* 8. The Studio */}
+      <StudioSection />
+
+      {/* 9. Pricing Plans */}
       <PricingSection />
 
-      {/* FAQ */}
+      {/* 10. FAQ */}
       <FAQSection />
 
-      {/* Newsletter & Stats */}
-      <NewsletterSection />
+      {/* 11. Secondary CTA */}
+      <SecondaryCtaSection />
 
-      {/* CTA Section */}
-      <section className="py-24 px-6 bg-slate-900 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl font-bold tracking-tight mb-6">
-            Ready to build the future?
-          </h2>
-          <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
-            Join thousands of developers who are already building with AI. Create your first app in minutes.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg">
-              Start Building
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button variant="outline" size="lg" className="border-slate-600 text-slate-300 hover:bg-slate-800 px-8 py-4 text-lg">
-              <Play className="mr-2 w-5 h-5" />
-              Watch Demo
-            </Button>
-          </div>
-
-          <div className="flex justify-center gap-6 mt-12 pt-12 border-t border-slate-800">
-            <a href="#" className="text-slate-400 hover:text-white transition-colors">
-              <Github className="w-6 h-6" />
-            </a>
-            <a href="#" className="text-slate-400 hover:text-white transition-colors">
-              <Twitter className="w-6 h-6" />
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* 12. Footer */}
+      <FooterSection />
 
       <CommandPalette open={isCommandOpen} onOpenChange={setIsCommandOpen} />
     </div>
