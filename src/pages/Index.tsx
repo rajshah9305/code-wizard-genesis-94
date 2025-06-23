@@ -10,6 +10,10 @@ import { ShowcaseGallery } from "@/components/showcase/ShowcaseGallery";
 import { InteractivePlayground } from "@/components/playground/InteractivePlayground";
 import { NewsletterSection } from "@/components/engagement/NewsletterSection";
 import { FAQSection } from "@/components/faq/FAQSection";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Zap, Code, Sparkles, ArrowRight, Play, Github, Twitter } from "lucide-react";
 
 const Index = () => {
   const [isCommandOpen, setIsCommandOpen] = useState(false);
