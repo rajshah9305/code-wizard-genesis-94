@@ -34,23 +34,23 @@ export const StudioSection = () => {
   ];
 
   return (
-    <section className="py-24 px-6 bg-slate-900 text-white relative overflow-hidden">
+    <section className="py-24 px-6 bg-[#0F4C5C] text-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-green-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-20 w-64 h-64 bg-[#FF8066]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-[#7ACC88]/10 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-20">
-          <Badge className="mb-6 bg-orange-500/20 text-orange-300 border-orange-500/30">
+          <Badge className="mb-6 bg-[#FF8066]/20 text-[#FF8066] border-[#FF8066]/30 hover:bg-[#FF8066]/30">
             Meet the Studio
           </Badge>
           <h2 className="text-5xl font-bold tracking-tight mb-8">
             Built by developers,
-            <span className="text-orange-400 block">for developers</span>
+            <span className="text-[#FF8066] block">for developers</span>
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-[#E0E6EF] max-w-3xl mx-auto leading-relaxed">
             We're a team of passionate engineers, designers, and AI researchers who believe 
             that building software should be joyful, not frustrating.
           </p>
@@ -59,15 +59,15 @@ export const StudioSection = () => {
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {stats.map((stat, index) => (
-            <Card key={index} className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
+            <Card key={index} className="bg-[#F0F4F8]/10 border-[#F0F4F8]/20 backdrop-blur-sm hover:bg-[#F0F4F8]/20 transition-colors">
               <CardContent className="p-6 text-center">
-                <div className="text-orange-400 mb-3 flex justify-center">
+                <div className="text-[#FF8066] mb-3 flex justify-center">
                   {stat.icon}
                 </div>
                 <div className="text-3xl font-bold text-white mb-1">
                   {stat.value}
                 </div>
-                <div className="text-sm text-slate-400">
+                <div className="text-sm text-[#E0E6EF]">
                   {stat.label}
                 </div>
               </CardContent>
@@ -80,16 +80,16 @@ export const StudioSection = () => {
           <h3 className="text-3xl font-bold text-center mb-12">Core Team</h3>
           <div className="grid md:grid-cols-3 gap-8">
             {team.map((member, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-all duration-300 group">
+              <Card key={index} className="bg-[#F0F4F8]/10 border-[#F0F4F8]/20 hover:bg-[#F0F4F8]/20 transition-all duration-300 group backdrop-blur-sm">
                 <CardContent className="p-8 text-center">
                   <img 
                     src={member.image} 
                     alt={member.name}
-                    className="w-20 h-20 rounded-full mx-auto mb-4 object-cover ring-4 ring-orange-500/20 group-hover:ring-orange-500/40 transition-all duration-300"
+                    className="w-20 h-20 rounded-full mx-auto mb-4 object-cover ring-4 ring-[#FF8066]/20 group-hover:ring-[#FF8066]/40 transition-all duration-300"
                   />
                   <h4 className="text-xl font-semibold text-white mb-2">{member.name}</h4>
-                  <p className="text-orange-400 text-sm mb-3">{member.role}</p>
-                  <p className="text-slate-300 text-sm leading-relaxed">{member.bio}</p>
+                  <p className="text-[#FF8066] text-sm mb-3">{member.role}</p>
+                  <p className="text-[#E0E6EF] text-sm leading-relaxed">{member.bio}</p>
                 </CardContent>
               </Card>
             ))}
@@ -97,15 +97,15 @@ export const StudioSection = () => {
         </div>
 
         {/* Mission */}
-        <Card className="bg-gradient-to-r from-orange-500/10 to-green-500/10 border-orange-500/20 backdrop-blur-sm">
+        <Card className="bg-gradient-to-r from-[#FF8066]/10 to-[#7ACC88]/10 border-[#FF8066]/20 backdrop-blur-sm">
           <CardContent className="p-12 text-center">
             <h3 className="text-3xl font-bold mb-6 text-white">Our Mission</h3>
-            <p className="text-xl text-slate-200 mb-8 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-[#E0E6EF] mb-8 leading-relaxed max-w-3xl mx-auto">
               To democratize software development by making it as simple as having a conversation. 
               We believe everyone should be able to turn their ideas into reality, regardless of 
               their technical background.
             </p>
-            <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
+            <Button size="lg" className="bg-[#FF8066] hover:bg-[#FF8066]/90 text-white shadow-lg hover:shadow-xl transition-all duration-300">
               Join Our Journey
             </Button>
           </CardContent>

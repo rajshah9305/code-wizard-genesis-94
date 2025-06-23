@@ -1,124 +1,115 @@
 
-import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Clock, Code, Zap, ArrowRight } from "lucide-react";
+import { AlertCircle, CheckCircle, Clock, Code, Zap } from "lucide-react";
 
 export const ProblemSolutionSection = () => {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-
   const problems = [
     {
-      icon: <Clock className="w-8 h-8" />,
-      title: "Weeks of Development Time",
-      description: "Traditional app development takes months of planning, coding, testing, and deployment.",
-      color: "text-red-500"
+      icon: <Clock className="w-6 h-6" />,
+      title: "Development Takes Forever",
+      description: "Months of coding, debugging, and deployment cycles slow down innovation"
     },
     {
-      icon: <Code className="w-8 h-8" />,
-      title: "Complex Technical Setup",
-      description: "Setting up frameworks, dependencies, and configurations requires deep technical knowledge.",
-      color: "text-orange-500"
+      icon: <Code className="w-6 h-6" />,
+      title: "Technical Barriers",
+      description: "Great ideas get stuck because of complex technical requirements"
     },
     {
-      icon: <Zap className="w-8 h-8" />,
+      icon: <AlertCircle className="w-6 h-6" />,
       title: "High Development Costs",
-      description: "Hiring developers and maintaining codebases can cost thousands of dollars per month.",
-      color: "text-yellow-500"
+      description: "Hiring developers and maintaining codebases becomes expensive"
     }
   ];
 
   const solutions = [
     {
-      title: "Minutes to Deploy",
-      description: "Generate production-ready apps in under 5 minutes with natural language prompts.",
-      improvement: "1000x faster"
+      icon: <Zap className="w-6 h-6" />,
+      title: "Instant App Creation",
+      description: "Generate complete applications in minutes, not months"
     },
     {
-      title: "Zero Setup Required",
-      description: "No frameworks to learn, no dependencies to manage. Just describe and build.",
-      improvement: "100% simplified"
+      icon: <CheckCircle className="w-6 h-6" />,
+      title: "No-Code Required",
+      description: "Transform natural language descriptions into production-ready code"
     },
     {
-      title: "Fraction of the Cost",
-      description: "Build unlimited apps for less than what you'd pay a developer per hour.",
-      improvement: "90% cost savings"
+      icon: <Code className="w-6 h-6" />,
+      title: "Professional Quality",
+      description: "Clean, maintainable code following industry best practices"
     }
   ];
 
   return (
-    <section className="py-24 px-6 bg-white relative">
-      <div className="max-w-7xl mx-auto">
-        {/* Problem Statement */}
+    <section className="py-24 px-6 bg-[#F0F4F8] relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-10 left-10 w-64 h-64 bg-[#FF8066]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-[#7ACC88]/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-20">
-          <Badge variant="secondary" className="mb-6 bg-red-50 text-red-700 border-red-200">
-            The Development Problem
+          <Badge className="mb-6 bg-[#FF8066]/20 text-[#FF8066] border-[#FF8066]/30 hover:bg-[#FF8066]/30">
+            Problem → Solution
           </Badge>
-          <h2 className="text-5xl font-bold tracking-tight mb-8 text-slate-900">
-            Building apps shouldn't be this <span className="text-red-500">hard</span>
+          <h2 className="text-5xl font-bold tracking-tight mb-8 text-[#0F4C5C]">
+            From frustration to
+            <span className="text-[#FF8066] block">innovation</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Developers spend countless hours on repetitive tasks, complex setups, and maintenance. 
-            There has to be a better way.
+          <p className="text-xl text-[#8B9DAF] max-w-3xl mx-auto leading-relaxed">
+            We understand the challenges of modern development. Here's how we solve them.
           </p>
         </div>
 
-        {/* Problems Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-24">
-          {problems.map((problem, index) => (
-            <Card 
-              key={index} 
-              className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-slate-200"
-              onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              <CardContent className="p-8 text-center">
-                <div className={`${problem.color} mb-6 flex justify-center transition-transform duration-300 ${hoveredCard === index ? 'scale-110' : ''}`}>
-                  {problem.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-slate-900">{problem.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{problem.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Solution Statement */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-4 mb-8">
-            <div className="h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent flex-1 max-w-32" />
-            <Badge className="bg-green-50 text-green-700 border-green-200 px-6 py-2">
-              Our Solution
-            </Badge>
-            <div className="h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent flex-1 max-w-32" />
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Problems */}
+          <div className="space-y-8">
+            <div className="text-center lg:text-left mb-12">
+              <h3 className="text-3xl font-bold text-[#0F4C5C] mb-4">The Problem</h3>
+              <p className="text-[#8B9DAF] text-lg">Development shouldn't be this hard</p>
+            </div>
+            
+            {problems.map((problem, index) => (
+              <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-[#E0E6EF] bg-white/80 backdrop-blur-sm">
+                <CardContent className="p-8">
+                  <div className="flex items-start gap-4">
+                    <div className="text-[#FF8066] bg-[#FF8066]/10 p-3 rounded-xl group-hover:bg-[#FF8066]/20 transition-colors">
+                      {problem.icon}
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold text-[#0F4C5C] mb-3">{problem.title}</h4>
+                      <p className="text-[#8B9DAF] leading-relaxed">{problem.description}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-          <h2 className="text-5xl font-bold tracking-tight mb-8 text-slate-900">
-            AI-powered development that <span className="text-green-500">just works</span>
-          </h2>
-        </div>
 
-        {/* Solutions Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {solutions.map((solution, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-green-200 bg-green-50/50">
-              <CardContent className="p-8 text-center">
-                <Badge className="bg-green-500 hover:bg-green-600 text-white mb-4">
-                  {solution.improvement}
-                </Badge>
-                <h3 className="text-xl font-semibold mb-4 text-slate-900">{solution.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{solution.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="text-center">
-          <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-medium group">
-            Experience the Difference
-            <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </Button>
+          {/* Solutions */}
+          <div className="space-y-8">
+            <div className="text-center lg:text-left mb-12">
+              <h3 className="text-3xl font-bold text-[#0F4C5C] mb-4">Our Solution</h3>
+              <p className="text-[#8B9DAF] text-lg">AI-powered development made simple</p>
+            </div>
+            
+            {solutions.map((solution, index) => (
+              <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-[#7ACC88]/20 bg-gradient-to-r from-[#7ACC88]/5 to-[#7ACC88]/10 backdrop-blur-sm">
+                <CardContent className="p-8">
+                  <div className="flex items-start gap-4">
+                    <div className="text-[#7ACC88] bg-[#7ACC88]/10 p-3 rounded-xl group-hover:bg-[#7ACC88]/20 transition-colors">
+                      {solution.icon}
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold text-[#0F4C5C] mb-3">{solution.title}</h4>
+                      <p className="text-[#8B9DAF] leading-relaxed">{solution.description}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>
