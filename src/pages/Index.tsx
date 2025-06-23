@@ -1,21 +1,18 @@
-
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Progress } from "@/components/ui/progress";
-import { ArrowRight, Code, Zap, Sparkles, Play, Github, Twitter } from "lucide-react";
 import { HeroSection } from "@/components/hero/HeroSection";
 import { AIStudio } from "@/components/ai-studio/AIStudio";
 import { CodePreview } from "@/components/code-preview/CodePreview";
 import { Navigation } from "@/components/layout/Navigation";
 import { CommandPalette } from "@/components/ui/command-palette";
+import { TestimonialsSection } from "@/components/testimonials/TestimonialsSection";
+import { PricingSection } from "@/components/pricing/PricingSection";
+import { ShowcaseGallery } from "@/components/showcase/ShowcaseGallery";
+import { InteractivePlayground } from "@/components/playground/InteractivePlayground";
+import { NewsletterSection } from "@/components/engagement/NewsletterSection";
+import { FAQSection } from "@/components/faq/FAQSection";
 
 const Index = () => {
   const [isCommandOpen, setIsCommandOpen] = useState(false);
-  const [currentSection, setCurrentSection] = useState("hero");
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -53,6 +50,12 @@ const Index = () => {
       
       {/* Hero Section */}
       <HeroSection />
+
+      {/* Interactive Playground */}
+      <InteractivePlayground />
+
+      {/* App Showcase Gallery */}
+      <ShowcaseGallery />
 
       {/* Features Grid */}
       <section className="py-24 px-6 bg-slate-50">
@@ -103,6 +106,18 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <TestimonialsSection />
+
+      {/* Pricing */}
+      <PricingSection />
+
+      {/* FAQ */}
+      <FAQSection />
+
+      {/* Newsletter & Stats */}
+      <NewsletterSection />
 
       {/* CTA Section */}
       <section className="py-24 px-6 bg-slate-900 text-white">
