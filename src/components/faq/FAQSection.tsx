@@ -39,13 +39,13 @@ export const FAQSection = () => {
     <section className="py-24 px-6 bg-white">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <Badge className="mb-4 bg-[#0F4C5C]/20 text-[#0F4C5C] border-[#0F4C5C]/30 hover:bg-[#0F4C5C]/30">
+          <Badge variant="secondary" className="mb-4">
             FAQ
           </Badge>
-          <h2 className="text-4xl font-bold tracking-tight mb-6 text-[#0F4C5C]">
+          <h2 className="text-4xl font-bold tracking-tight mb-6">
             Frequently asked questions
           </h2>
-          <p className="text-xl text-[#8B9DAF]">
+          <p className="text-xl text-muted-foreground">
             Everything you need to know about CodeCraft AI.
           </p>
         </div>
@@ -55,12 +55,12 @@ export const FAQSection = () => {
             <AccordionItem 
               key={index} 
               value={`item-${index}`}
-              className="border border-[#E0E6EF] rounded-lg px-6 bg-white hover:shadow-md transition-shadow"
+              className="border border-slate-200 rounded-lg px-6"
             >
-              <AccordionTrigger className="text-left font-semibold hover:text-[#FF8066] transition-colors text-[#0F4C5C]">
+              <AccordionTrigger className="text-left font-semibold hover:text-orange-500 transition-colors">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-[#8B9DAF] leading-relaxed">
+              <AccordionContent className="text-muted-foreground leading-relaxed">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

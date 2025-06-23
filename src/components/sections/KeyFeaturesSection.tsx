@@ -1,84 +1,110 @@
 
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Zap, Code, Palette, Database, Shield, Rocket } from "lucide-react";
+import { Zap, Code, Sparkles, Rocket, Shield, Globe } from "lucide-react";
 
 export const KeyFeaturesSection = () => {
+  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
+
   const features = [
     {
       icon: <Zap className="w-8 h-8" />,
-      title: "AI-Powered Generation",
-      description: "Transform natural language into production-ready React applications with advanced AI",
-      gradient: "from-[#FF8066] to-[#FF8066]/80"
+      title: "Lightning Fast Generation",
+      description: "Transform ideas into production-ready applications in under 5 minutes with our advanced AI engine.",
+      benefit: "1000x Faster",
+      gradient: "from-yellow-400 to-orange-500"
     },
     {
       icon: <Code className="w-8 h-8" />,
-      title: "Clean Code Output",
-      description: "Generate maintainable, well-structured TypeScript code following best practices",
-      gradient: "from-[#7ACC88] to-[#7ACC88]/80"
+      title: "Clean, Modern Code",
+      description: "Generated applications use industry best practices, TypeScript, and modern frameworks out of the box.",
+      benefit: "Enterprise Quality",
+      gradient: "from-blue-400 to-purple-500"
     },
     {
-      icon: <Palette className="w-8 h-8" />,
-      title: "Beautiful UI Components",
-      description: "Modern, responsive designs with Tailwind CSS and shadcn/ui components",
-      gradient: "from-[#0F4C5C] to-[#0F4C5C]/80"
+      icon: <Sparkles className="w-8 h-8" />,
+      title: "Smart Design System",
+      description: "Every app includes a sophisticated design system with perfect accessibility and responsive layouts.",
+      benefit: "Designer Approved",
+      gradient: "from-pink-400 to-red-500"
     },
     {
-      icon: <Database className="w-8 h-8" />,
-      title: "Database Integration",
-      description: "Seamless integration with popular databases and real-time data management",
-      gradient: "from-[#FF8066] to-[#7ACC88]"
+      icon: <Rocket className="w-8 h-8" />,
+      title: "One-Click Deployment",
+      description: "Deploy your applications instantly to any platform with automated CI/CD pipelines.",
+      benefit: "Zero DevOps",
+      gradient: "from-green-400 to-emerald-500"
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Security First",
-      description: "Built-in authentication, authorization, and security best practices",
-      gradient: "from-[#7ACC88] to-[#0F4C5C]"
+      description: "Built-in security features, authentication, and compliance standards for enterprise-grade applications.",
+      benefit: "Bank-Level Security",
+      gradient: "from-indigo-400 to-blue-500"
     },
     {
-      icon: <Rocket className="w-8 h-8" />,
-      title: "One-Click Deploy",
-      description: "Deploy your applications instantly to popular hosting platforms",
-      gradient: "from-[#0F4C5C] to-[#FF8066]"
+      icon: <Globe className="w-8 h-8" />,
+      title: "Global Scale",
+      description: "Applications automatically scale globally with CDN distribution and edge computing optimization.",
+      benefit: "Worldwide Ready",
+      gradient: "from-teal-400 to-cyan-500"
     }
   ];
 
   return (
-    <section className="py-24 px-6 bg-white relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-[#FF8066]/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#7ACC88]/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-      </div>
-
+    <section className="py-24 px-6 bg-slate-50 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-grid-slate-200/50 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none" />
+      
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-20">
-          <Badge className="mb-6 bg-[#7ACC88]/20 text-[#7ACC88] border-[#7ACC88]/30 hover:bg-[#7ACC88]/30">
+          <Badge variant="secondary" className="mb-6 bg-orange-50 text-orange-700 border-orange-200">
             Powerful Features
           </Badge>
-          <h2 className="text-5xl font-bold tracking-tight mb-8 text-[#0F4C5C]">
-            Everything you need to
-            <span className="text-[#FF8066] block">build amazing apps</span>
+          <h2 className="text-5xl font-bold tracking-tight mb-8 text-slate-900">
+            Everything you need to build
+            <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent block">
+              exceptional applications
+            </span>
           </h2>
-          <p className="text-xl text-[#8B9DAF] max-w-3xl mx-auto leading-relaxed">
-            From idea to deployment, we provide all the tools and features you need for modern web development.
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Our AI doesn't just generate code—it creates complete, production-ready applications 
+            with all the features and polish of a professional development team.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-[#E0E6EF] bg-white backdrop-blur-sm overflow-hidden">
-              <CardContent className="p-8 h-full flex flex-col">
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 text-white group-hover:scale-110 transition-transform duration-300`}>
+            <Card 
+              key={index}
+              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-0 bg-white/80 backdrop-blur-sm"
+              onMouseEnter={() => setHoveredFeature(index)}
+              onMouseLeave={() => setHoveredFeature(null)}
+            >
+              <CardContent className="p-8 relative overflow-hidden">
+                {/* Gradient Background */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                
+                {/* Icon with gradient background */}
+                <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${feature.gradient} text-white mb-6 transition-transform duration-300 ${hoveredFeature === index ? 'scale-110 rotate-3' : ''}`}>
                   {feature.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-[#0F4C5C] mb-4 group-hover:text-[#FF8066] transition-colors">
+                
+                {/* Benefit Badge */}
+                <Badge className={`mb-4 bg-gradient-to-r ${feature.gradient} text-white border-0`}>
+                  {feature.benefit}
+                </Badge>
+                
+                <h3 className="text-xl font-semibold mb-4 text-slate-900 group-hover:text-slate-800 transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-[#8B9DAF] leading-relaxed flex-grow">
+                <p className="text-slate-600 leading-relaxed">
                   {feature.description}
                 </p>
-                <div className={`h-1 w-0 bg-gradient-to-r ${feature.gradient} group-hover:w-full transition-all duration-500 mt-6 rounded-full`} />
+
+                {/* Hover effect decoration */}
+                <div className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${feature.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
               </CardContent>
             </Card>
           ))}
