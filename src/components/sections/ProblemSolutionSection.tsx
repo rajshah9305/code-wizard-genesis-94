@@ -52,13 +52,13 @@ export const ProblemSolutionSection = () => {
       <div className="max-w-7xl mx-auto">
         {/* Problem Statement */}
         <div className="text-center mb-20">
-          <Badge variant="secondary" className="mb-6 bg-red-50 text-red-700 border-red-200">
+          <Badge variant="secondary" className="mb-6 bg-red-50 text-red-600 border-red-200 px-6 py-3 font-medium">
             The Development Problem
           </Badge>
-          <h2 className="text-5xl font-bold tracking-tight mb-8 text-slate-900">
+          <h2 className="text-5xl font-bold tracking-tight mb-8 text-black">
             Building apps shouldn't be this <span className="text-red-500">hard</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             Developers spend countless hours on repetitive tasks, complex setups, and maintenance. 
             There has to be a better way.
           </p>
@@ -69,7 +69,7 @@ export const ProblemSolutionSection = () => {
           {problems.map((problem, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-slate-200"
+              className="group hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-500 hover:-translate-y-2 border border-gray-200 bg-white"
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
             >
@@ -77,8 +77,8 @@ export const ProblemSolutionSection = () => {
                 <div className={`${problem.color} mb-6 flex justify-center transition-transform duration-300 ${hoveredCard === index ? 'scale-110' : ''}`}>
                   {problem.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-slate-900">{problem.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{problem.description}</p>
+                <h3 className="text-xl font-semibold mb-4 text-black">{problem.title}</h3>
+                <p className="text-gray-700 leading-relaxed">{problem.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -88,26 +88,26 @@ export const ProblemSolutionSection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-4 mb-8">
             <div className="h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent flex-1 max-w-32" />
-            <Badge className="bg-green-50 text-green-700 border-green-200 px-6 py-2">
+            <Badge className="bg-orange-50 text-orange-600 border-orange-200 px-6 py-3 font-medium">
               Our Solution
             </Badge>
             <div className="h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent flex-1 max-w-32" />
           </div>
-          <h2 className="text-5xl font-bold tracking-tight mb-8 text-slate-900">
-            AI-powered development that <span className="text-green-500">just works</span>
+          <h2 className="text-5xl font-bold tracking-tight mb-8 text-black">
+            AI-powered development that <span className="text-orange-500">just works</span>
           </h2>
         </div>
 
         {/* Solutions Grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {solutions.map((solution, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-green-200 bg-green-50/50">
+            <Card key={index} className="group hover:shadow-xl hover:shadow-orange-500/20 transition-all duration-500 hover:-translate-y-2 border border-orange-200 bg-orange-50/30">
               <CardContent className="p-8 text-center">
-                <Badge className="bg-green-500 hover:bg-green-600 text-white mb-4">
+                <Badge className="bg-orange-500 hover:bg-orange-600 text-white mb-4 px-4 py-2 font-medium shadow-lg shadow-orange-500/30">
                   {solution.improvement}
                 </Badge>
-                <h3 className="text-xl font-semibold mb-4 text-slate-900">{solution.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{solution.description}</p>
+                <h3 className="text-xl font-semibold mb-4 text-black">{solution.title}</h3>
+                <p className="text-gray-700 leading-relaxed">{solution.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -115,7 +115,7 @@ export const ProblemSolutionSection = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-medium group">
+          <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold group shadow-xl shadow-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300 hover:-translate-y-1">
             Experience the Difference
             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
           </Button>

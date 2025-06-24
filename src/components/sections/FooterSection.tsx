@@ -32,14 +32,14 @@ export const FooterSection = () => {
   };
 
   return (
-    <footer className="bg-slate-900 text-white py-24 px-6">
+    <footer className="bg-black text-white py-24 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Main Footer Content */}
         <div className="grid lg:grid-cols-6 gap-12 mb-16">
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center shadow-lg shadow-orange-500/40">
                 <Code className="w-6 h-6 text-white" />
               </div>
               <div className="flex items-center gap-2">
@@ -47,7 +47,7 @@ export const FooterSection = () => {
                 <Badge className="bg-orange-500 hover:bg-orange-600">AI</Badge>
               </div>
             </div>
-            <p className="text-slate-300 text-lg leading-relaxed mb-8">
+            <p className="text-gray-300 text-lg leading-relaxed mb-8">
               The future of application development. Transform your ideas into reality 
               with the power of AI-driven code generation.
             </p>
@@ -59,9 +59,9 @@ export const FooterSection = () => {
                 <input 
                   type="email" 
                   placeholder="Your email"
-                  className="flex-1 px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="flex-1 px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
                 />
-                <Button className="bg-orange-500 hover:bg-orange-600 px-6">
+                <Button className="bg-orange-500 hover:bg-orange-600 px-6 shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all duration-300">
                   Subscribe
                 </Button>
               </div>
@@ -78,9 +78,9 @@ export const FooterSection = () => {
                 <a
                   key={index}
                   href={social.href}
-                  className="w-12 h-12 bg-slate-800 hover:bg-orange-500 rounded-lg flex items-center justify-center transition-colors duration-300 group"
+                  className="w-12 h-12 bg-gray-900 hover:bg-orange-500 rounded-lg flex items-center justify-center transition-all duration-300 group hover:shadow-lg hover:shadow-orange-500/30"
                 >
-                  <span className="text-slate-400 group-hover:text-white transition-colors">
+                  <span className="text-gray-400 group-hover:text-white transition-colors">
                     {social.icon}
                   </span>
                 </a>
@@ -97,7 +97,7 @@ export const FooterSection = () => {
                   <li key={link.name}>
                     <a 
                       href={link.href}
-                      className="text-slate-300 hover:text-orange-400 transition-colors duration-200"
+                      className="text-gray-300 hover:text-orange-400 transition-colors duration-200"
                     >
                       {link.name}
                     </a>
@@ -109,14 +109,14 @@ export const FooterSection = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-slate-800 pt-8">
+        <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-2 text-slate-400">
+            <div className="flex items-center gap-2 text-gray-400">
               <span>© 2024 CodeCraft AI. Made with</span>
-              <Heart className="w-4 h-4 text-red-500 fill-current" />
+              <Heart className="w-4 h-4 text-orange-500 fill-current" />
               <span>by developers, for developers.</span>
             </div>
-            <div className="flex items-center gap-6 text-sm text-slate-400">
+            <div className="flex items-center gap-6 text-sm text-gray-400">
               <span>Status: All systems operational</span>
               <span>•</span>
               <a href="#status" className="hover:text-orange-400 transition-colors">
